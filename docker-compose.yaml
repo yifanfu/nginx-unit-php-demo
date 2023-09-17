@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  unit:
+    image: public.ecr.aws/nginx/unit:1.31.0-php8.2-amd64
+    environment:
+      - SERVER_VERSION="false"
+    volumes:
+      - ./app:/app
+      - ./config/application.json:/docker-entrypoint.d/application.json
+    ports:
+      - 8080:8080
